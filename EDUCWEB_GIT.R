@@ -47,7 +47,7 @@ extrair_dados_ideb_real <- function() {
   url_ideb <- "https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/ideb/resultados"
   
   tryCatch({
-    # Fazer requisição com delay para ser respeitoso
+    # Fazer requisição com delay
     Sys.sleep(2)
     response <- GET(url_ideb, add_headers(.headers = get_headers()))
     
@@ -189,7 +189,7 @@ extrair_dados_fundeb <- function() {
 }
 
 
-##---------- FUNÇÃO 4: PROCESSAR E ESTRUTURAR DADOS REAIS ---------
+##---------- FUNÇÃO 4: PROCESSAR E ESTRUTURAR DADOS ---------
 
 processar_dados_reais <- function() {
   cat("Processando dados reais coletados...\n")
@@ -440,7 +440,7 @@ salvar_dados <- function(dados, nome_arquivo = "dados_educacao_brasil.csv") {
 executar_webscraping_educacao_real <- function() {
   cat("=== INICIANDO WEBSCRAPING REAL DE DADOS EDUCACIONAIS ===\n\n")
   
-  # Avisar sobre delays para ser respeitoso com os servidores
+  # Avisar sobre delays 
   cat("Este processo inclui delays entre requisições para respeitar os servidores.\n")
   cat("Tempo estimado: 2-3 minutos\n\n")
   
@@ -523,7 +523,7 @@ executar_webscraping_educacao_real <- function() {
     cat("Resumo textual IDEB salvo em: resumo_texto_ideb.txt\n")
   }
   
-  cat("\n=== WEBSCRAPING REAL CONCLUÍDO! ===\n")
+  cat("\n=== WEBSCRAPING CONCLUÍDO! ===\n")
   cat("Arquivos gerados:\n")
   cat("   - dados_educacao_reais_brutos.rds (dados completos)\n")
   cat("   - relatorio_coleta_dados_reais.csv (status da coleta)\n")
@@ -566,10 +566,6 @@ dados_ibge <- dados_coletados$dados_ibge
 
 
 #---------- ANÁLISE DA EFICÁCIA DAS FONTES --------------
-
-dados_coletados <- readRDS("dados_educacao_reais_brutos.rds")
-
-#--------- CALCULAR MÉTRICAS DE EFICÁCIA ----------------
 
 calcular_metricas_eficacia <- function(dados) {
   
