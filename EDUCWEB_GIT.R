@@ -23,7 +23,7 @@ library(knitr)
 #------- CONFIGURAÇÕES INICIAIS --------------
 
 
-# Função para configurar headers (Opera!)
+# Função para configurar headers 
 get_headers <- function() {
   return(c(
     "User-Agent" = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 OPR/106.0.0.0",
